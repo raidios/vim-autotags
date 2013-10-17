@@ -203,7 +203,7 @@ fun! s:AutotagsInit()
 
     " find autotags subdir
     let l:dir = getcwd()
-    while l:dir != "/"
+    while l:dir != fnamemodify(l:dir, ":p:h:h")
         if getftype(g:autotagsdir . '/' . s:PathHash(l:dir)) == "dir"
             let s:autotags_subdir = g:autotagsdir . '/' . s:PathHash(l:dir)
             "echomsg "autotags subdir exist: " . s:autotags_subdir
